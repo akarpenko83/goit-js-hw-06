@@ -7,38 +7,19 @@ const ingredients = [
   'Condiments',
 ];
 
-let ingredientArr = "";
-
-// ingredients.forEach(function (ingredient) { 
-//   ingredient = document.createElement("li");
-//   return ingredientArr += ingredient;
-  
-
-//  });
-
-for (let i = 0; i < ingredients.length; i++) {
-  let ingredient = document.createElement("li");
-  ingredient.textContent = ingredients[i];
-  
-}
-
-// console.log("🚀 ~ ingredientArr:", ingredientArr)
-
-
-
-// ingredients.forEach(function (ingredient) {
-  // ingredient = document.createElement("li");
-  // ingredient.textContent = Object.values(ingredients);
-
-  // console.log("🚀 ~ ingredient:", ingredient)
-
-  
-// });
-
-
 const ingredientsRef = document.querySelector("#ingredients");
-console.log("🚀 ~ ingredientsRef:", ingredientsRef)
 
-ingredientsRef.append(ingredientArr);
+let ingredientArr = [];
+
+ingredients.forEach(function(ingredient) {
+  const listItem = document.createElement("li");
+  listItem.textContent = ingredient;
+  listItem.classList = "item";
+  return ingredientArr.push(listItem);
+});
+
+ingredientsRef.append(...ingredientArr);
+
+
 
 
