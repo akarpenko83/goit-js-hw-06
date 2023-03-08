@@ -18,8 +18,12 @@ galleryRef.style.display = 'flex';
 galleryRef.style.listStyle = 'none';
 galleryRef.style.gap = '10px';
 
-const markup = images.map(({ url, alt }) => `<li><img src=${url} alt=${alt} width="320"img/></li>`)
+
+
+const markup = images.map(( { url, alt } ) => `<li><img src=${url} alt="${alt}" width="320"img/></li>`)
   .join("");
 
 
 galleryRef.insertAdjacentHTML("beforeend", markup);
+const image = document.querySelector('img');
+console.log(image.alt);
