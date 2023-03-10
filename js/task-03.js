@@ -26,4 +26,3 @@ const markup = images.map(( { url, alt } ) => `<li><img src=${url} alt="${alt}" 
 
 galleryRef.insertAdjacentHTML("beforeend", markup);
 const image = document.querySelector('img');
-console.log(image.alt);
