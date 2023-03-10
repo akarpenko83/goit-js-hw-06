@@ -5,15 +5,20 @@ formLogin.addEventListener("submit", onFormSubmit);
 
 function onFormSubmit(event) {
   event.preventDefault();
-  console.dir(event.currentTarget.elements);
-  const {
-    elements: { email, password }
-  } = event.currentTarget;
+
+  const { email, password } = event.currentTarget;
 
   if (email.value === "" || password.value === "") {
     return alert("Все поля должны быть заполнены!");
   }
 
+   const formData = {
+    email: email.value,
+    password: password.value,
+   };
+
+  console.log(formData)
+  event.currentTarget.reset();
  };
 
 
