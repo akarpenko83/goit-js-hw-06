@@ -13,6 +13,8 @@ btnCreate.addEventListener('click', createBoxes);
 btnDestroy.addEventListener('click', destroyBoxes);
 
 function createBoxes() {
+  const divArr = [];
+  
   const amount = inputRef.value;
   const sizeIncreaseStep = 10;
   let currentBoxSize = 30;
@@ -23,8 +25,9 @@ function createBoxes() {
       div.style.width = `${currentBoxSize}px`;
       div.style.height = `${currentBoxSize}px`;
       currentBoxSize += sizeIncreaseStep;
-    boxes.appendChild(div);
+      divArr.push(div);
   }
+  boxes.append(...divArr);
 };
 
 function destroyBoxes() {
