@@ -14,21 +14,39 @@ const amount = inputRef.value;
 btnCreateRef.addEventListener('click', createBoxes);
 btnDestroyRef.addEventListener('click', destroyBoxes);
 
+
+// ---------------------------------------------------------------- рішення через створення елементу
+// function createBoxes() {
+//   const divArr = [];
+//   const amount = inputRef.value;
+//   const sizeIncreaseStep = 10;
+//   let currentBoxSize = 30;
+//   for (let i = 0; i < amount; i++) {
+//     const div = document.createElement('div')
+//       div.style.backgroundColor = getRandomHexColor();
+//       div.style.width = `${currentBoxSize}px`;
+//       div.style.height = `${currentBoxSize}px`;
+//       currentBoxSize += sizeIncreaseStep;
+//       divArr.push(div);
+//   }
+//   boxesRef.append(...divArr);
+// };
+
+// ---------------------------------------------------------------- рішення через шаблонну строку
+
 function createBoxes() {
   const divArr = [];
-  const amount = inputRef.value;
-  const sizeIncreaseStep = 10;
+    const amount = inputRef.value;
+    const sizeIncreaseStep = 10;
   let currentBoxSize = 30;
   for (let i = 0; i < amount; i++) {
-    const div = document.createElement('div')
-      div.style.backgroundColor = getRandomHexColor();
-      div.style.width = `${currentBoxSize}px`;
-      div.style.height = `${currentBoxSize}px`;
-      currentBoxSize += sizeIncreaseStep;
-      divArr.push(div);
+    let div = `<div style="background-color: ${getRandomHexColor()}; width: ${currentBoxSize}px; height: ${currentBoxSize}px;"></div>`
+    currentBoxSize += sizeIncreaseStep;
+    divArr.push(div);
   }
-  boxesRef.append(...divArr);
-};
+
+  boxesRef.insertAdjacentHTML("beforeend", divArr.join(''));
+ };
 
 function destroyBoxes() {
   boxesRef.innerHTML = '';
