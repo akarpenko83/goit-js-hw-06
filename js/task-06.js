@@ -3,9 +3,11 @@ const inputRef = document.querySelector('input#validation-input');
 
 const onBlur = () => {
     const validLength = Number(inputRef.dataset.length);
-    inputRef.value.length === validLength
-        ? inputRef.classList.add("valid")
-        : inputRef.classList.add("invalid");
+if (inputRef.value.length !== validLength) {
+    inputRef.classList.add("invalid")
+} else {
+    inputRef.classList.add("valid")
+}
 };
 
 const onFocus = () => {
@@ -14,5 +16,3 @@ const onFocus = () => {
 
 inputRef.addEventListener('blur', onBlur);
 inputRef.addEventListener('focus', onFocus);
-
-
